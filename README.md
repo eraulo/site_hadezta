@@ -1,2 +1,2 @@
-# site_hadezta
-Develop Hadezta site
+# ONG Hadezta
+Hadia systema base de dados ba website Hadezta 
