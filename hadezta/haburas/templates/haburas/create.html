@@ -1,14 +1,13 @@
-<html>
-    <head>
-        <title>
-        </title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+    {% block meta %}{% endblock %}
+
+    {% block title %} Hadezta {% endblock %}
+    {% block content %}
         <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Create"/>
         </form>
-    </body>
-</html>
+    {% endblock %}

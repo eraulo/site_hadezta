@@ -1,8 +1,9 @@
-<html>
-    <head>
-        <title>Hadezta</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+    {% block meta %}{% endblock %}
+
+    {% block title %} Hadezta {% endblock %}
+    {% block content %}
         <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
         <a href="{% url 'create' %}">Prense Formulario</a>
 
@@ -23,5 +24,4 @@
             {{ registu.sexo }}
             {{ registu.cursu }}
         {% endfor %}
-    </body>
-</html>
+    {% endblock %}
