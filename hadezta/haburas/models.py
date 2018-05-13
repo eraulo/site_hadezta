@@ -45,4 +45,4 @@ class RegistuKursu(models.Model):
     place = models.CharField(max_length=30)
     phonenumber = models.CharField(max_length=8, null=True, blank=True, validators=[phonenumber_validate], unique=True)
     sexo = models.CharField(max_length=1, choices=CHOICES_SEXO)
-    cursu = models.CharField(max_length=1, choices=CHOICES_CURSUS)
+    cursu = models.IntegerField(choices=CHOICES_CURSUS)

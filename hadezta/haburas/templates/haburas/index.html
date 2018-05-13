@@ -3,6 +3,25 @@
         <title>Hadezta</title>
     </head>
     <body>
-        <p>Hello Mundo</p>
+        <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
+        <a href="{% url 'create' %}">Prense Formulario</a>
+
+   	{% if user.is_authenticated %}
+  	    Hi {{ user.username }}!
+  	    <p><a href="{% url 'auth_logout' %}">logout</a></p>
+	{% else %}
+  	    <p>You are not logged in</p>
+  		<a href="{% url 'auth_login' %}">login</a>
+	{% endif %}  
+
+        {% for registu in registukursu_list %}
+            {{ registu.first_name }}
+            {{ registu.last_name }}
+            {{ registu.birthday }}
+            {{ registu.place }}
+            {{ registu.phonenumber }}
+            {{ registu.sexo }}
+            {{ registu.cursu }}
+        {% endfor %}
     </body>
 </html>
