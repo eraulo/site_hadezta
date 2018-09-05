@@ -7,9 +7,6 @@
     <nav class="navbar navbar-default">
         <div class="row">
             <div class="col-md-12">
-                <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
-                <a href="{% url 'create' %}">Prense Formulario</a>
-
                 {% if user.is_authenticated %}
                     Hi {{ user.username }}!
                     <p><a href="{% url 'auth_logout' %}">logout</a></p>
@@ -17,7 +14,10 @@
                     <p>You are not logged in</p>
                     <a href="{% url 'auth_login' %}">login</a>
                 {% endif %}  
-
+                <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
+                <a href="{% url 'create' %}">
+                    <button type="button" class="btn btn-primary">Create</button>
+                </a>
                 <table class="table">
                   <thead class="thead-light">
                     <tr>
@@ -40,8 +40,8 @@
                       <td>{{ registu.birthday }}</td>
                       <td>{{ registu.place }}</td>
                       <td>{{ registu.phonenumber }}</td>
-                      <td>{{ registu.sexo }}</td>
-                      <td>{{ registu.cursu }}</td>
+                      <td>{{ registu.get_sexo_display }}</td>
+                      <td>{{ registu.get_cursu_display }}</td>
                     </tr>
                     {% endfor %}
                   </tbody>
