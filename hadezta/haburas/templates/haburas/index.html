@@ -1,27 +1,63 @@
 {% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load i18n %}
 
     {% block meta %}{% endblock %}
 
     {% block title %} Hadezta {% endblock %}
     {% block content %}
-        <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
-        <a href="{% url 'create' %}">Prense Formulario</a>
-
-   	{% if user.is_authenticated %}
-  	    Hi {{ user.username }}!
-  	    <p><a href="{% url 'auth_logout' %}">logout</a></p>
-	{% else %}
-  	    <p>You are not logged in</p>
-  		<a href="{% url 'auth_login' %}">login</a>
-	{% endif %}  
-
-        {% for registu in registukursu_list %}
-            {{ registu.first_name }}
-            {{ registu.last_name }}
-            {{ registu.birthday }}
-            {{ registu.place }}
-            {{ registu.phonenumber }}
-            {{ registu.sexo }}
-            {{ registu.cursu }}
-        {% endfor %}
+    <nav class="navbar navbar-default">
+        <div class="row">
+            <div class="col-md-12">
+                {% if user.is_authenticated %}
+                    Hi {{ user.username }}!
+                    <p><a href="{% url 'auth_logout' %}">logout</a></p>
+                {% else %}
+                    <p>You are not logged in</p>
+                    <a href="{% url 'auth_login' %}">login</a>
+                {% endif %}  
+                <div class="jumbotron">
+                    <h1>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</h1>
+                </div>
+                
+                <a href="{% url 'create' %}">
+                    <input type="submit" class="btn btn-primary" value="Create"/>
+                </a>
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Birthday</th>
+                      <th scope="col">Place</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Sexo</th>
+                      <th scope="col">Curso</th>
+                      <th scope="col">Photo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for registu in registukursu_list reversed %}
+                    <tr>
+                      <th scope="row">{{ registu.pk }}</th>
+                      <td>{{ registu.first_name }}</td>
+                      <td>{{ registu.last_name }}</td>
+                      <td>{{ registu.birthday }}</td>
+                      <td>{{ registu.place }}</td>
+                      <td>{{ registu.phonenumber }}</td>
+                      <td>{{ registu.get_sexo_display }}</td>
+                      <td>{{ registu.get_cursu_display }}</td>
+                      <td>
+                        {% if registu.photo %}
+                            <img src="{{ registu.photo.url }}" width=50 height=50/>
+                        {% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </nav>
     {% endblock %}
