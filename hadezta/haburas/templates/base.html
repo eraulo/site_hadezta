@@ -4,11 +4,18 @@
 {% load static from staticfiles %}
 {% load i18n %}
 
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('ONG HADEZTA') }}</a></h1>
+{% endblock %}
+
 
 {% block meta %} 
-    <link type="text/css" rel="stylesheet" href="{% static 'css/registration.css' %}"/>
 {% endblock %}
 
 {% block title %}{% endblock %}
 
 {% block content %}{% endblock %}
+
+
+
+

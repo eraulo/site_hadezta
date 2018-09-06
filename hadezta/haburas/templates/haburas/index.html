@@ -1,4 +1,6 @@
-{% extends 'base_site.html' %}
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load i18n %}
 
     {% block meta %}{% endblock %}
 
@@ -14,9 +16,12 @@
                     <p>You are not logged in</p>
                     <a href="{% url 'auth_login' %}">login</a>
                 {% endif %}  
-                <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
+                <div class="jumbotron">
+                    <h1>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</h1>
+                </div>
+                
                 <a href="{% url 'create' %}">
-                    <button type="button" class="btn btn-primary">Create</button>
+                    <input type="submit" class="btn btn-primary" value="Create"/>
                 </a>
                 <table class="table">
                   <thead class="thead-light">
@@ -29,10 +34,11 @@
                       <th scope="col">Phone Number</th>
                       <th scope="col">Sexo</th>
                       <th scope="col">Curso</th>
+                      <th scope="col">Photo</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {% for registu in registukursu_list %}
+                    {% for registu in registukursu_list reversed %}
                     <tr>
                       <th scope="row">{{ registu.pk }}</th>
                       <td>{{ registu.first_name }}</td>
@@ -42,6 +48,11 @@
                       <td>{{ registu.phonenumber }}</td>
                       <td>{{ registu.get_sexo_display }}</td>
                       <td>{{ registu.get_cursu_display }}</td>
+                      <td>
+                        {% if registu.photo %}
+                            <img src="{{ registu.photo.url }}" width=50 height=50/>
+                        {% endif %}
+                      </td>
                     </tr>
                     {% endfor %}
                   </tbody>

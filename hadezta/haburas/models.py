@@ -46,3 +46,4 @@ class RegistuKursu(models.Model):
     phonenumber = models.CharField(max_length=8, null=True, blank=True, validators=[phonenumber_validate], unique=True)
     sexo = models.CharField(max_length=1, choices=CHOICES_SEXO)
     cursu = models.IntegerField(choices=CHOICES_CURSUS)
+    photo = models.ImageField(null=True, blank=True)

@@ -13,7 +13,7 @@ class Index(ListView):
 
 class Create(CreateView):
     model = RegistuKursu
-    fields = ['first_name', 'last_name', 'birthday', 'place', 'phonenumber', 'sexo', 'cursu']
+    fields = ['first_name', 'last_name', 'birthday', 'place', 'phonenumber', 'sexo', 'cursu', 'photo']
     template_name = 'haburas/create.html'
     success_url = reverse_lazy('index')
 
