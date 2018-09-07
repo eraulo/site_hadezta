@@ -7,8 +7,9 @@ from .models import RegistuKursu
 
 class RegistuKursuAdmin(admin.ModelAdmin):
     model = RegistuKursu
-    list_display = ('first_name', 'last_name', 'birthday', 'place', 'phonenumber', 'sexo', 'cursu', 'photo')
+    list_display = ('first_name', 'last_name', 'birthday', 'place', 'phonenumber', 'sexo', 'cursu', 'image_tag')
     search_fields = ('first_name', 'last_name', 'place', 'phonenumber')
+    readonly_fields = ('image_tag',)
 
 
 admin.site.register(RegistuKursu, RegistuKursuAdmin)
