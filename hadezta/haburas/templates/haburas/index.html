@@ -9,17 +9,7 @@
     <nav class="navbar navbar-default">
         <div class="row">
             <div class="col-md-12">
-                {% if user.is_authenticated %}
-                    Hi {{ user.username }}!
-                    <p><a href="{% url 'auth_logout' %}">logout</a></p>
-                {% else %}
-                    <p>You are not logged in</p>
-                    <a href="{% url 'auth_login' %}">login</a>
-                {% endif %}  
-                <div class="jumbotron">
-                    <h1>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</h1>
-                </div>
-                
+                <h1>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</h1>
                 <a href="{% url 'create' %}">
                     <input type="submit" class="btn btn-primary" value="Create"/>
                 </a>

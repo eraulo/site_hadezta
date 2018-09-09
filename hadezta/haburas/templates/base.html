@@ -5,7 +5,31 @@
 {% load i18n %}
 
 {% block branding %}
-    <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('ONG HADEZTA') }}</a></h1>
+    <h1 id="site-name"><a href="{% url 'index' %}">ONG HADEZTA</a></h1>
+      <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        </div>
+        {% block usertools %}
+        {% if user.is_active %}
+        <div id="user-tools">
+            {% block welcome-msg %}
+                {% trans 'Welcome,' %}
+                <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+            {% endblock %}
+            {% block userlinks %}
+                {% if user.is_superuser %}
+                    {% if user.has_usable_password %}
+                        <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                    {% endif %}
+                {% endif %}
+                <a href="{% url 'auth_logout' %}">{% trans 'Log out' %}</a>
+            {% endblock %}
+        </div>
+        {% endif %}
+        {% endblock %}
+    </div>
+    <!-- END Header -->
 {% endblock %}
 
 
