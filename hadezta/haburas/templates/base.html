@@ -5,7 +5,7 @@
 {% load i18n %}
 
 {% block branding %}
-    <h1 id="site-name"><a href="{% url 'index' %}">ONG HADEZTA</a></h1>
+<h1 id="site-name"><a href="{% url 'index' %}">{% trans 'ONG HADEZTA' %}</a></h1>
       <!-- Header -->
     <div id="header">
         <div id="branding">
@@ -31,6 +31,14 @@
     </div>
     <!-- END Header -->
 {% endblock %}
+
+{% if not is_popup %}
+    {% block breadcrumbs %}
+        <div class="breadcrumbs">
+            <a href="{% url 'index' %}">{% trans "Home" %}</a>
+        </div>    
+    {% endblock %}
+{% endif %}
 
 
 {% block meta %} 

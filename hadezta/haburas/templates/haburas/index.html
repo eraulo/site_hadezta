@@ -6,25 +6,48 @@
 
     {% block title %} Hadezta {% endblock %}
     {% block content %}
+
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-color: #ccc;
+        }
+        .create {
+            background-repeat: no-repeat;
+            background-position: right 7px center;
+            padding-right: 26px;
+            display: block;
+            float: left;
+            padding: 3px 12px;
+            background: rgb(10, 218, 245);
+            font-weight: 400;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 15px;
+            margin-right: 15px;
+        }
+    </style>
+
     <nav class="navbar navbar-default">
         <div class="row">
             <div class="col-md-12">
-                <h1>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</h1>
-                <a href="{% url 'create' %}">
-                    <input type="submit" class="btn btn-primary" value="Create"/>
-                </a>
+                <a href="{% url 'create' %}" class="create">{% trans 'Create' %}</a>
+                <h1>{% trans 'List Of Course' %}</h1>
+
                 <table class="table">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">Id</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Birthday</th>
-                      <th scope="col">Place</th>
-                      <th scope="col">Phone Number</th>
-                      <th scope="col">Sexo</th>
-                      <th scope="col">Curso</th>
-                      <th scope="col">Photo</th>
+                      <th scope="col">{% trans 'Id' %}</th>
+                      <th scope="col">{% trans 'First' %}</th>
+                      <th scope="col">{% trans 'Last' %}</th>
+                      <th scope="col">{% trans 'Birthday' %}</th>
+                      <th scope="col">{% trans 'Place' %}</th>
+                      <th scope="col">{% trans 'Phone Number' %}</th>
+                      <th scope="col">{% trans 'Sexo' %}</th>
+                      <th scope="col">{% trans 'Curso' %}</th>
+                      <th scope="col">{% trans 'Photo' %}</th>
                     </tr>
                   </thead>
                   <tbody>

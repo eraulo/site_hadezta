@@ -1,10 +1,11 @@
-{% extends 'base_site.html' %}
+{% extends 'base.html' %}
+{% load i18n %}
 
     {% block meta %}{% endblock %}
 
     {% block title %} Hadezta {% endblock %}
     {% block content %}
-        <p>FORMULARIO REGISTO KURSUS NO KRITERIA KURSUS</p>
+        <h1>{% trans 'Register Course' %}</h1>
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
