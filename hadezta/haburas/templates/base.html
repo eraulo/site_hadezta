@@ -5,7 +5,9 @@
 {% load i18n %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'index' %}">{% trans 'ONG HADEZTA' %}</a></h1>
+    <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" />
+    <h1 id="site-name"><a href="{% url 'index' %}">{% trans 'ONG HADEZTA' %}</a></h1>
       <!-- Header -->
     <div id="header">
         <div id="branding">
